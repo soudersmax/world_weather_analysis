@@ -1,5 +1,0 @@
-# Adding config.py file.
-config.py
-
-# Adding Additional files
-Practice Files/
