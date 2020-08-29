@@ -25,7 +25,7 @@ Client will use the data to recommend ideal hotels based on clients' weather pre
    * Determine correlations for specific weather features
    * Create a series of heatmaps using the Google Maps and Places API that showcases said relationship
 3. Visualize Travel Data
-   * Create a heatmap with pop-up markers that can display information on specific cities based on a customer's travel preferences
+   * Create a heatmap with pop-up markers that can display information on specific cities based on a customer's travel preferences (vacationpy.ipynb and weatherPy.ipynb)
 
 ## Task #2
 
