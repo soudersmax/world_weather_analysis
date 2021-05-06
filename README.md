@@ -1,54 +1,40 @@
 # World Wide Weather Project
 
-## Task # 1 
+## Initial Analysis
 
-Collect and analyze weather data across cities worldwide by creating a Pandas DataFrame with 500 + of the world's unique cities and their weather data in real time. 
+WeatherPy.ipynb contains the initial creation of a weather database using randomly generated lat-long pairs and the OpenWeatherMap API. The weather data was then plotted to show the associations between latitude and Temperature, Humidity, Cloudiness, and Windspeed, seen below.
 
+<img src="weather_data/Fig1.png"> 
+<img src="weather_data/Fig2.png">
+<img src="weather_data/Fig3.png">
+<img src="weather_data/Fig4.png">
 
+The correlation between these variables was then quantified via linear regression:
+#### Maximum Temperature
+<img src="weather_data/Fig5.png">
+<img src="weather_data/Fig6.png">
 
-### Purpose
+#### Percent Humidity
+<img src="weather_data/Fig7.png">
+<img src="weather_data/Fig8.png">
 
-Client will use the data to recommend ideal hotels based on clients' weather preferences
+#### Percent Cloudiness
+<img src="weather_data/Fig9.png">
+<img src="weather_data/Fig10.png">
 
+#### Wind Speed
+<img src="weather_data/Fig11.png">
+<img src="weather_data/Fig12.png">
 
+## Applying Weather Data to Build a Search Filter and Itinerary
 
-### Method
+The weather_database directory generates a new randomized set of lat-long pairs, matches them to cities, retrieves weather data, and stores it all in a dataframe (exported as CSV). 
 
-1. Collect the data
-   * Use NumPy module to generate more than 1500 random latitudes and longitudes
-   * Use the citipy module to list the nearest city to the latitudes and longitudes
-   * Use the OpenWeatherMap API to request the current weather data from each unique city in your list
-   * Parse the JSON data from the API request
-   * Collect specific data from the JSON file and add it to a DataFrame
-2. Exploratory Analysis with Visualization
-   * Create exploratory scatter plots 
-   * Determine correlations for specific weather features
-   * Create a series of heatmaps using the Google Maps and Places API that showcases said relationship
-3. Visualize Travel Data
-   * Create a heatmap with pop-up markers that can display information on specific cities based on a customer's travel preferences (vacationpy.ipynb and weatherPy.ipynb)
+The next step (in the vacation_search directory) was to build a  map which would display with hotel locations in cities that meet the input criteria. To do this, I set the program to receive information on maximum temperature, then pulled in the google maps API to locate hotels in the cities that were filtered from the main database. I then built pop-up info box markers to provide information about the Hotel name, location, weather description, and maximum temperature in Fahrenheit.
 
-## Task #2
+<img src="vacation_search/WeatherPy_vacation_map.PNG">
 
-Create a vacation itinerary based on input commands for maximum and minimum temperature preferences. 
+The final step (located in the vacation_itinerary directory) was to build a trip itinerary that shows the route between 4 cities that were chosen from the possible destinations defined in the previous search. I created a small loop through 4 cities in Japan, included a "directions" layer from gmaps, as well as the same infobox from before.
 
-### Purpose
-
-Client will use the app to input temperature preferences, locate cities that fit those criteria, and locate hotels in those cities. 
-
-### Method
-
-1. Collect the weather data 
-   * Use NumPy module to generate 2000 random latitudes and longitudes
-   * Use the CityPy module to retrieve the nearest city
-   * Perform API call with OpenWeatherMap
-   * Parse JSON data from API request and add to new DataFrame
-   * Stored in weather_database
-2. Collect Customer preferences and use them to identify potential travel destinations
-   * Use input statements for minimum and maximum temperature preferences
-   * Filter DataFrame to provide potential hotels and locate nearby hotels
-   * Display destinations on a marker layer map with pop-up markers
-   * Stored in vacation_search
-3. Create a travel Itinerary Map
-   * Use Google Directions API to create a  travel itinerary to show the route between 4 cities from the potential destinations
-   * Create a marker layer map with a popup marker for each city on the itinerary
-   * Stored as vacation_itinerary
+<img src = "vacation_itinerary/WeatherPu_travel_map.PNG">
+<img src="vacation_itinerary/WeatherPy_travel_map_markers.PNG">
